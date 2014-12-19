@@ -55,8 +55,9 @@ class W3_Cdn_Mirror_TransparentCDN extends W3_Cdn_Mirror {
 
         $invalidation_urls = [];
         foreach($files as $file){ //Oh array_map+lambdas, how I miss u...
-            $invalidation_urls[] = $file['original_url'];
+            if(isset($file['original_url'])) $invalidation_urls[] = $file['original_url'];
         }
+        if(count($invalidation_urls)==0 ) $invalidation_urls[] = "";
 
         if ($this->_purge_content($invalidation_urls, $error)) {
                 $results[] = $this->_get_result($local_path, $remote_path, W3TC_CDN_RESULT_OK, __('OK', 'w3-total-cache'));
@@ -64,7 +65,6 @@ class W3_Cdn_Mirror_TransparentCDN extends W3_Cdn_Mirror {
                 $results[] = $this->_get_result($local_path, $remote_path, W3TC_CDN_RESULT_ERROR, sprintf(__('Unable to purge (%s).', 'w3-total-cache'), $error));
         }
 
-        file_put_contents('/tmp/wp.log', print_r($results,true), FILE_APPEND);
         return !$this->_is_error($results);
     }
 
@@ -146,10 +146,11 @@ class W3_Cdn_Mirror_TransparentCDN extends W3_Cdn_Mirror {
                 if(is_array($body->urls_to_send) && count($body->urls_to_send)>0 ){
                     return true; //hemos invalidado al menos una URL.
                 }
-                else{
-                    $error = __('Invalid Request Parameter', 'w3-total-cache');
+                else if(count($files) > 0 && $files[0] != ""){ //HACK!!!
+                    $error = __('Invalid Request URL', 'w3-total-cache');
                     return false;
                 }
+                return true;
 
             case 400:
                 $error = __('Invalid Request Parameter', 'w3-total-cache');
