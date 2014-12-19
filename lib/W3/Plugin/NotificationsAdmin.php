@@ -111,12 +111,8 @@ class W3_Plugin_NotificationsAdmin {
     /**
      * Display the support us nag
      */
-    public function support_us_nag() { ?>
-    <script type="text/javascript">/*<![CDATA[*/
-        jQuery(function() {
-            w3tc_lightbox_support_us('<?php echo wp_create_nonce('w3tc'); ?>');
-        });
-        /*]]>*/</script>
-    <?php
+    public function support_us_nag() { 
+        //Removed, interest conflict.
     }
+
 }
