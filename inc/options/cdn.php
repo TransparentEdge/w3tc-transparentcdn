@@ -112,7 +112,6 @@
                     <span class="description"><?php _e('Download attachments hosted elsewhere into your media library and deliver them via <acronym title="Content Delivery Network">CDN</acronym>.', 'w3-total-cache') ?></span>
                 </th>
             </tr>
-            <?php if(w3tc_edge_mode() && (w3_is_pro($this->_config)) || w3_is_enterprise()): ?>
             <tr>
                 <th colspan="2">
                     <?php $this->checkbox('cdncache.enabled', !$cdn_supports_full_page_mirroring) ?> <?php w3_e_config_label('cdncache.enabled') ?></label><br/>
@@ -123,7 +122,6 @@
                     </span>
                 </th>
             </tr>
-            <?php endif ?>
             <?php if ($cdn_supports_header): ?>
             <tr>
                 <th colspan="2">
