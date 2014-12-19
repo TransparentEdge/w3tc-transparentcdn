@@ -4,8 +4,8 @@ if (!defined('ABSPATH')) {
     die();
 }
 
-if (!defined('W3TC_CDN_TRANSPARENTCDN_PURGE_URL')) define('W3TC_CDN_TRANSPARENTCDN_PURGE_URL', 'http://api.transparentcdn.dev:8000/v1/companies/%s/invalidate/');
-if (!defined('W3TC_CDN_TRANSPARENTCDN_AUTHORIZATION_URL')) define('W3TC_CDN_TRANSPARENTCDN_AUTHORIZATION_URL', ' http://api.transparentcdn.dev:8000/v1/oauth2/access_token/');
+if (!defined('W3TC_CDN_TRANSPARENTCDN_PURGE_URL')) define('W3TC_CDN_TRANSPARENTCDN_PURGE_URL', 'https://api.transparentcdn.com/v1/companies/%s/invalidate/');
+if (!defined('W3TC_CDN_TRANSPARENTCDN_AUTHORIZATION_URL')) define('W3TC_CDN_TRANSPARENTCDN_AUTHORIZATION_URL', ' https://api.transparentcdn.com/v1/oauth2/access_token/');
 
 w3_require_once(W3TC_LIB_W3_DIR . '/Cdn/Mirror.php');
 
