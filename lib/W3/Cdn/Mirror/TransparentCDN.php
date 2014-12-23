@@ -53,7 +53,7 @@ class W3_Cdn_Mirror_TransparentCDN extends W3_Cdn_Mirror {
         // We ask for the authorization token.
         $this->_get_token();
 
-        $invalidation_urls = [];
+        $invalidation_urls = array();
         foreach($files as $file){ //Oh array_map+lambdas, how I miss u...
             if(isset($file['original_url'])) $invalidation_urls[] = $file['original_url'];
         }
