@@ -69,6 +69,9 @@ Una vez introducidos todos los datos, pulsaremos sobre "Test transparentcdn" par
 
 En la misma pantalla, deberemos asegurarnos de marcar la opcion  "Enable mirroring of pages", para que el invalidado se realice siempre que se realicen publicaciones o actualizaciones nuevas.
 
+Por último, para terminar la configuración, en la seccion "Page cache" bajo "Purge policy", nos aseguramos de marcar todas las secciones que queramos descachear automáticamente cada vez que se publique un nuevo post o se actualice uno existente.
+![](doc/images/17.png)
+
 Una vez seguidos estos pasos, el plugin ya está configurado y funcional. Puede operar con el blog de la manera habitual y el plugin se encargará de notificar los cambios a TransparentCDN para que actualice las copias guardadas. 
 
 ## Notas:
