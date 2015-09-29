@@ -9,7 +9,7 @@ aunque esperamos mantener actualizadas las funcionalidades a medida que W3TC act
 A continuación se incluye una guía para instalar y configurar el plugin.
 
 ### Descargar el plugin
-La última versión del plugin siempre se podrá encontrar en la página oficial de github.com de TransparentCDN, en https://github.com/Transparent-CDN/w3tc-transparentcdn . De esta página se podrá obtener el código del plugin, bajo una licencia GPLv2. 
+La última versión del plugin siempre se podrá encontrar en la página oficial de github.com de TransparentCDN, en https://github.com/Transparent-CDN/w3tc-transparentcdn . De esta página se podrá obtener el código del plugin, bajo una licencia GPLv2.
 Para descargarlo, puede hacerse mediante (enlace) git clonando el repositorio, descargando el zip en el enlace de la izquierda, o solicitándonoslo.
 Al final de este paso, debemos tener un archivo .zip que contiene un directorio llamado w3tc-transparentcdn.
 
@@ -72,8 +72,8 @@ En la misma pantalla, deberemos asegurarnos de marcar la opcion  "Enable mirrori
 Por último, para terminar la configuración, en la seccion "Page cache" bajo "Purge policy", nos aseguramos de marcar todas las secciones que queramos descachear automáticamente cada vez que se publique un nuevo post o se actualice uno existente.
 ![](doc/images/17.png)
 
-Una vez seguidos estos pasos, el plugin ya está configurado y funcional. Puede operar con el blog de la manera habitual y el plugin se encargará de notificar los cambios a TransparentCDN para que actualice las copias guardadas. 
+Una vez seguidos estos pasos, el plugin ya está configurado y funcional. Puede operar con el blog de la manera habitual y el plugin se encargará de notificar los cambios a TransparentCDN para que actualice las copias guardadas.
 
 ## Notas:
-* El plugin es una modificación y adaptación de la excelente base del trabajo de W3TC Total cache (https://wordpress.org/plugins/w3-total-cache/). 
+* El plugin es una modificación y adaptación de la excelente base del trabajo de W3TC Total cache (https://wordpress.org/plugins/w3-total-cache/).
 * Pese a las indicaciones de las propias pantallas del plugin, al ser una derivación, todo el posible soporte asociado al plugin lo ofrecerá TransparentCDN, mediante los procedimientos de soporte establecidos con el cliente.
