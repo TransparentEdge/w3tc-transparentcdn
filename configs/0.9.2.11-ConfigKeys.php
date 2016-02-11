@@ -341,6 +341,10 @@ $keys = array(
         'type' => 'array',
         'default' => array()
     ),
+    'pgcache.reject.mb' => array(
+        'type' => 'boolean',
+        'default' => false
+    ),
     'pgcache.reject.cookie' => array(
         'type' => 'array',
         'default' => array('wptouch_switch_toggle')
