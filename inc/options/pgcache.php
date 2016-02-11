@@ -283,6 +283,13 @@
                     <span class="description"><?php _e('If disabled, HEAD requests can often be cached resulting in "empty pages" being returned for subsequent requests for a <acronym title="Uniform Resource Indicator">URL</acronym>.', 'w3-total-cache'); ?></span>
                 </td>
             </tr>
+            <tr>
+                <th><label for="pgcache_reject_mb"><?php _e('Reject DEVICE user agents:', 'w3-total-cache')?></label></th>
+                <td>
+                    <?php $this->checkbox('pgcache.reject.mb') ?> <?php w3_e_config_label('pgcache.reject.mb') ?></label><br />
+                    <span class="description"><?php _e('Never send cache pages for mobile or tablet user agents.', 'w3-total-cache'); ?></span>
+                </td>
+            </tr>
             <?php endif; ?>
             <?php if ($this->_config->get_string('pgcache.engine') != 'file' && $this->_config->get_string('pgcache.engine') != 'file_generic'): ?>
             <tr>

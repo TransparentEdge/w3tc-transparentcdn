@@ -50,6 +50,7 @@ class W3_UI_Settings_PageCache extends W3_UI_Settings_SettingsBase{
                 'pgcache.comment_cookie_ttl' => __('Comment cookie lifetime:', 'w3-total-cache'),
                 'pgcache.accept.qs' =>  __('Accepted query strings:', 'w3-total-cache'),
                 'pgcache.reject.ua' =>  __('Rejected user agents:', 'w3-total-cache'),
+                'pgcache.reject.mb' =>  __('Rejected mobile user agents:', 'w3-total-cache'),
                 'pgcache.reject.cookie' => __('Rejected cookies:', 'w3-total-cache'),
                 'pgcache.reject.uri' =>  __('Never cache the following pages:', 'w3-total-cache'),
                 'pgcache.accept.files' =>  __('Cache exception list:', 'w3-total-cache'),

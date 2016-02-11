@@ -459,6 +459,15 @@ class W3_PgCache {
         }
 
         /**
+         * Check User Agent
+         */
+        if (!$this->_check_mb()) {
+            $this->cache_reject_reason = 'User agent mobile is rejected';
+
+            return false;
+        }
+
+        /**
          * Check WordPress cookies
          */
         if (!$this->_check_cookies()) {
@@ -687,6 +696,40 @@ class W3_PgCache {
         }
 
         return true;
+    }
+
+    /**
+     * Checks User Agent mobile
+     *
+     * @return boolean
+     */
+    function _check_mb() {
+        w3_require_once(W3TC_LIB_W3_DIR . '/Request.php');
+
+        if($this->_config->get_boolean('browsercache.enabled')) {
+            if (isset($_SERVER['X-Device']) && $this->_isMobileOrTablet($_SERVER['X-Device']))
+                return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Returns true if the header X-DEVICE is mobile or tablet, false otherwise
+     * 
+     * @param string header X-DEVICE
+     * @return boolean
+     */
+    function _isMobileOrTablet($xDevice) {
+        $noCacheDevices = array('mobile','tablet');
+        
+        foreach($noCacheDevices as $device) {
+            if(strcasecmp($xDevice,$device) == 0) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
