@@ -283,14 +283,7 @@
                     <span class="description"><?php _e('If disabled, HEAD requests can often be cached resulting in "empty pages" being returned for subsequent requests for a <acronym title="Uniform Resource Indicator">URL</acronym>.', 'w3-total-cache'); ?></span>
                 </td>
             </tr>
-            <tr>
-                <th><label for="pgcache_reject_mb"><?php _e('Reject DEVICE user agents:', 'w3-total-cache')?></label></th>
-                <td>
-                    <?php $this->checkbox('pgcache.reject.mb') ?> <?php w3_e_config_label('pgcache.reject.mb') ?></label><br />
-                    <span class="description"><?php _e('Never send cache pages for mobile or tablet user agents.', 'w3-total-cache'); ?></span>
-                </td>
-            </tr>
-            <?php endif; ?>
+           <?php endif; ?>
             <?php if ($this->_config->get_string('pgcache.engine') != 'file' && $this->_config->get_string('pgcache.engine') != 'file_generic'): ?>
             <tr>
                 <th><label for="pgcache_lifetime"><?php w3_e_config_label('pgcache.lifetime') ?></label></th>
@@ -388,6 +381,14 @@
                     <span class="description"><?php _e('Specify additional page headers to cache.', 'w3-total-cache')?></span>
                 </td>
             </tr>
+            <tr>
+                <th><label for="pgcache_reject_mb"><?php _e('Reject DEVICE user agents:', 'w3-total-cache')?></label></th>
+                <td>
+                    <?php $this->checkbox('pgcache.reject.mb') ?> <?php w3_e_config_label('pgcache.reject.mb') ?></label><br />
+                    <span class="description"><?php _e('Never cache pages for mobile or tablet user agents.', 'w3-total-cache'); ?></span>
+                </td>
+            </tr>
+ 
             <?php if (w3_is_nginx() && $this->_config->get_string('pgcache.engine') == 'file_generic'): ?>
             <tr>
                 <th><label><?php w3_e_config_label('pgcache.cache.nginx_handle_xml') ?></label></th>
