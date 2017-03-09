@@ -33,7 +33,7 @@ En la siguiente pantalla, hacer click en "subir plugin"
 
 ![](doc/images/4.png)
 
-Con esto, elegiremos el archivo zip que contiene el directorio del plugin
+Con esto, elegiremos el archivo zip que contiene el directorio del plugin. **IMPORTANTE**: Al descargar el plugin de github, este incluye un "-master" en el nombre del directorio y del .zip. Hay que asegurarse de que el nombre no contiene "-master" para evitar fallos de instalación en el plugin. Para esto basta con descomprimir el zip en local, renombrar el directorio y volver a comprimir en zip.
 
 ![](doc/images/5.png)
 
