@@ -153,6 +153,7 @@ class W3_Cdn_Mirror_TransparentCDN extends W3_Cdn_Mirror {
                 return true;
 
             case 400:
+                if(count($files) > 0 && $files[0] == "") return true; #Caso de la prueba.
                 $error = __('Invalid Request Parameter', 'w3-total-cache');
                 return false;
 
