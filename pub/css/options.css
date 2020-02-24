@@ -469,3 +469,69 @@ th.w3tc_extensions_manage_column_check {
 .w3tcbc_qrf td code {
 	white-space: nowrap;
 }
+
+.w3tc-gopro {
+	background: #fbfbfb;
+	border-left: 4px solid #46b450;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	padding: 5px;
+	grid-template-columns: 1fr auto;
+	display: grid;
+	grid-gap: 30px;
+	align-items: flex-start;
+}
+
+.w3tc-gopro-action strong,
+.w3tc-gopro-action i {
+	display: block;
+	text-align: center;
+}
+
+.w3tc-gopro-action i {
+	margin-top: 2px;
+	margin-bottom: 10px;
+}
+
+.w3tc-gopro-more {
+	display: block;
+}
+
+.w3tc-gopro-more:focus {
+	box-shadow: none;
+    outline: none;
+}
+
+.w3tc-gopro-more .dashicons {
+	display: inline;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+.w3tc-gopro-excerpt {
+	display: block;
+}
+.w3tc-gopro-description {
+	display: block;
+	max-height: 0px;
+	transition: max-height 0.5s ease-out;
+	overflow: hidden;
+}
+
+/* For pro features in a table, ensure the checkboxes / etc remained aligned. */
+.form-table .w3tc-gopro {
+	margin-left: -9px;
+}
+
+.button.w3tc-gopro-button {
+	border-color: darkgreen;
+	box-shadow: 0 1px 0 darkgreen;
+	background: green;
+	color: #fff;
+}
+.button.w3tc-gopro-button:hover,
+.button.w3tc-gopro-button:focus {
+	border-color: green;
+	box-shadow: 0 1px 0 green;
+	background: #009900;
+	color: #fff;
+}

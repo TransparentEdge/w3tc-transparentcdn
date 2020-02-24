@@ -30,7 +30,7 @@ class Cdnfsd_CacheFlush {
 			}
 		}
 
-		$o = Dispatcher::component( 'CacheFlush' );
+		$o = Dispatcher::component( 'Cdnfsd_CacheFlush' );
 
 		$o->flush_all_requested = true;
 		return true;
@@ -58,6 +58,12 @@ class Cdnfsd_CacheFlush {
 			if ( !isset( $extras['ui_action'] ) ) {
 				return true;
 			}
+		}
+
+		global $wp_rewrite;   // required by many Util_PageUrls methods
+		if ( empty( $wp_rewrite ) ) {
+			error_log('Post was modified before wp_rewrite initialization. Cant flush cache.');
+			return false;
 		}
 
 		$full_urls = array();

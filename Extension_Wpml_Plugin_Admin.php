@@ -42,8 +42,6 @@ class Extension_Wpml_Plugin_Admin {
 			$requirements[] = 'Ensure "WPML" plugin compatibility, which is not currently active.';
 		if ( empty( $requirements ) && !Util_Environment::is_w3tc_pro( $config ) ) {
 			$enabled = false;
-			$requirements[] = 'Available after <a href="#" class="button-buy-plugin" data-src="wpml_requirements">upgrade</a>';
-			$disabled_message = '<a href="#" class="button-buy-plugin" data-src="wpml_requirements2">upgrade</a>';
 		}
 
 		$extensions['wpml'] = array(
@@ -54,6 +52,11 @@ class Extension_Wpml_Plugin_Admin {
 			'author_uri' => 'https://www.w3-edge.com/',
 			'extension_uri' => 'https://www.w3-edge.com/',
 			'extension_id' => 'wpml',
+			'pro_feature' => true,
+			'pro_excerpt' => __( 'Improve the caching performance of websites localized by WPML.', 'w3-total-cache'),
+			'pro_description' => array(
+				__( 'Localization is a type of personalization that makes websites more difficult to scale. This extension reduces the response time of websites localized by WPML.', 'w3-total-cache')
+			),
 			'settings_exists' => false,
 			'version' => '0.1',
 			'enabled' => $enabled,

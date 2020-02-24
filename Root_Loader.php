@@ -31,6 +31,8 @@ class Root_Loader {
 			$plugins[] = new Cdn_Plugin();
 		if ( $c->get_boolean( 'cdnfsd.enabled' ) )
 			$plugins[] = new Cdnfsd_Plugin();
+		if ( $c->get_boolean( 'lazyload.enabled' ) )
+			$plugins[] = new LazyLoad_Plugin();
 		if ( $c->get_boolean( 'browsercache.enabled' ) )
 			$plugins[] = new BrowserCache_Plugin();
 		if ( $c->get_boolean( 'minify.enabled' ) )
@@ -44,6 +46,7 @@ class Root_Loader {
 			$plugins[] = new Generic_Plugin_Admin();
 			$plugins[] = new BrowserCache_Plugin_Admin();
 			$plugins[] = new DbCache_Plugin_Admin();
+			$plugins[] = new LazyLoad_Plugin_Admin();
 			$plugins[] = new ObjectCache_Plugin_Admin();
 			$plugins[] = new PgCache_Plugin_Admin();
 			$plugins[] = new Minify_Plugin_Admin();
@@ -124,8 +127,6 @@ class Root_Loader {
 		$c = Dispatcher::config();
 		$extensions = $c->get_array( 'extensions.active' );
 
-		$loaded = array();
-
 		$frontend = $c->get_array( 'extensions.active_frontend' );
 		foreach ( $frontend as $extension => $nothing ) {
 			if ( isset( $extensions[$extension] ) ) {
@@ -133,10 +134,9 @@ class Root_Loader {
 				$filename = W3TC_EXTENSION_DIR . '/' .
 					str_replace( '..', '', trim( $path, '/' ) );
 
-				if ( file_exists( $filename ) && !isset( $loaded[$filename] ) )
-					include $filename;
-
-				$loaded[$filename] = '*';
+				if ( file_exists( $filename ) ) {
+					include_once( $filename );
+				}
 			}
 		}
 
@@ -146,11 +146,16 @@ class Root_Loader {
 				$filename = W3TC_EXTENSION_DIR . '/' .
 					str_replace( '..', '', trim( $path, '/' ) );
 
-				if ( file_exists( $filename ) && !isset( $loaded[$filename] ) )
-					include $filename;
-
-				$loaded[$filename] = '*';
+				if ( file_exists( $filename ) ) {
+					include_once( $filename );
+				}
 			}
+		}
+
+		w3tc_do_action( 'wp_loaded' );
+		do_action( 'w3tc_extension_load' );
+		if ( is_admin() ) {
+			do_action( 'w3tc_extension_load_admin' );
 		}
 	}
 }

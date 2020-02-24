@@ -1038,9 +1038,9 @@ class Util_Environment {
 			return $post_ID;
 		} elseif ( $comment_post_ID ) {
 			return $comment_post_ID;
-		} elseif ( ( is_single() || is_page() ) && is_array( $posts ) ) {
+		} elseif ( ( is_single() || is_page() ) && isset( $posts[0]->ID ) ) {
 			return $posts[0]->ID;
-		} elseif ( is_object( $posts ) && property_exists( $posts, 'ID' ) ) {
+		} elseif ( isset( $posts->ID ) ) {
 			return $posts->ID;
 		} elseif ( isset( $_REQUEST['p'] ) ) {
 			return (integer) $_REQUEST['p'];
@@ -1084,7 +1084,6 @@ class Util_Environment {
 	 * @return bool
 	 */
 	static public function is_w3tc_pro( $config = null ) {
-		return true;
 		if ( defined( 'W3TC_PRO' ) && W3TC_PRO )
 			return true;
 		if ( defined( 'W3TC_ENTERPRISE' ) && W3TC_ENTERPRISE )
