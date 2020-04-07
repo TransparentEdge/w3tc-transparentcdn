@@ -40,6 +40,9 @@ Network: True
 if ( !defined( 'ABSPATH' ) ) {
 	die();
 }
+if ( !defined( 'W3TC_PRO' ) ) {
+    define( 'W3TC_PRO', true );
+}
 
 /**
  * Abort W3TC loading if WordPress is upgrading
