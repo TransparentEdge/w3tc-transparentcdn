@@ -48,7 +48,7 @@ $authorized = !empty( $key );
                 </p>
             </td>
             <td colspan="1">
-                <span id="cdn_test_status" class="w3tc-status w3tc-process"></span>
+                <span id="tcdn_test_status" class="w3tc-status w3tc-process"></span>
             </td>
         </tr>
     </table>
@@ -64,7 +64,7 @@ $authorized = !empty( $key );
     document.getElementById('transparentcdn_test').addEventListener('click', function(e){
         e.preventDefault()
         p = document.getElementById('tcdn_test_text')
-        box = document.getElementById("cdn_test_status")
+        box = document.getElementById("tcdn_test_status")
         url = "https://api.transparentcdn.com/v1/oauth2/access_token/"
         
         client_id="client_id"+"="+document.getElementById('cdnfsd_transparentcdn_clientid').value
