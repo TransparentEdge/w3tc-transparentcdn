@@ -5,7 +5,7 @@ Instalacion y configuracion
 A continuación se incluye una guía para instalar y configurar el plugin.
 
 Descargar el plugin
-La última versión del plugin siempre se podrá encontrar en la página oficial de github.com de TransparentCDN, en https://github.com/Transparent-CDN/w3tc-transparentcdn . De esta página se podrá obtener el código del plugin, bajo una licencia GPLv2. Para descargarlo, puede hacerse mediante (enlace) git clonando el repositorio, descargando el zip en el enlace de la izquierda, o solicitándonoslo. Al final de este paso, debemos tener un archivo .zip que contiene un directorio llamado w3tc-transparentcdn.
+La última versión del plugin siempre se podrá encontrar en el apartado de releases de la página oficial de github.com de TransparentCDN, en https://github.com/Transparent-CDN/w3tc-transparentcdn/releases . De esta página se podrá obtener el código del plugin, bajo una licencia GPLv2. Para descargarlo, simplemente debe hacer clic en la descarga "Source code (zip)".
 
 ![](doc/images/001.png)
 
@@ -25,13 +25,17 @@ En la siguiente pantalla, hacer click en "subir plugin"
 
 ![](doc/images/4.png)
 
-Con esto, elegiremos el archivo zip que contiene el directorio del plugin. IMPORTANTE: Al descargar el plugin de github, este incluye un "-master" en el nombre del directorio y del .zip. Hay que asegurarse de que el nombre no contiene "-master" para evitar fallos de instalación en el plugin. Para esto basta con descomprimir el zip en local, renombrar el directorio y volver a comprimir en zip.
+Con esto, elegiremos el archivo zip descargado previamente que contiene el directorio del plugin.
 
 ![](doc/images/5.png)
 
 Una vez seleccionado, hacemos click en "Instalar ahora".
 
 ![](doc/images/6.png)
+
+Otra opción para instalar el plugin para por subirlo desempaquetado al host donde tengamos alojado nuestro site. Para ello debemos descomprimir el archivo y subirlo en el siguiente directorio /wordpress/wp-content-plugins/w3-total-cache. Una vez hecho esto, el plugin estará listo para configurarse.
+
+![](doc/images/0022.png)
 
 Configurar el plugin
 Una vez instalado el plugin con exito, el siguiente paso es configurarlo. En el menú lateral tendremos un nuevo elemento "Performance". Hacemos click en "General settings".
