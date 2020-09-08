@@ -23,13 +23,6 @@ class CdnEngine_Base {
 	var $_config = array();
 
 	/**
-	 * Cache config
-	 *
-	 * @var array
-	 */
-	var $cache_config = array();
-
-	/**
 	 * gzip extension
 	 *
 	 * @var string
@@ -377,7 +370,6 @@ class CdnEngine_Base {
 	function get_headers_for_file( $file, $whitelist = array() ) {
 		$local_path = $file['local_path'];
 		$mime_type = Util_Mime::get_mime_type( $local_path );
-		$last_modified = time();
 
 		$link = $file['original_url'];
 

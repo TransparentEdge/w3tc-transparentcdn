@@ -20,6 +20,13 @@ class UserExperience_LazyLoad_Mutator {
 		$this->excludes = apply_filters( 'w3tc_lazyload_excludes',
 			$this->config->get_array( 'lazyload.exclude' ) );
 
+		$r = apply_filters( 'w3tc_lazyload_mutator_before', array(
+			'buffer' => $buffer,
+			'modified' => $this->modified
+		) );
+		$buffer = $r['buffer'];
+		$this->modified = $r['modified'];
+
 		$unmutable = new UserExperience_LazyLoad_Mutator_Unmutable();
 		$buffer = $unmutable->remove_unmutable( $buffer );
 
@@ -36,7 +43,7 @@ class UserExperience_LazyLoad_Mutator {
 
 		if ( $this->config->get_boolean( 'lazyload.process_background' ) ) {
 			$buffer = preg_replace_callback(
-				'~<[^>]+background:\s*url[^>]+>~is',
+				'~<[^>]+background(-image)?:\s*url[^>]+>~is',
 				array( $this, 'tag_with_background' ), $buffer
 			);
 		}
@@ -125,7 +132,7 @@ class UserExperience_LazyLoad_Mutator {
 			return $dim;
 		}
 
-		$url = ( !empty( $m[4] ) ? $m[4] : ( ( !empty( $m[3] ) ? $m[3] : $m2 ) ) );
+		$url = ( !empty( $m[4] ) ? $m[4] : ( ( !empty( $m[3] ) ? $m[3] : $m[2] ) ) );
 
 		// full url found
 		if ( isset( $this->posts_by_url[$url] ) ) {
@@ -189,10 +196,10 @@ class UserExperience_LazyLoad_Mutator {
 	public function style_offload_background( $matches ) {
 		list( $match, $v1, $v2, $v, $quote ) = $matches;
 		$url_match = null;
-		preg_match( '~background:\s*(url\([^>]+\))~is', $v, $url_match );
-		$v = preg_replace( '~background:\s*url\([^>]+\)[;]?\s*~is', '', $v );
+		preg_match( '~background(-image)?:\s*(url\([^>]+\))~is', $v, $url_match );
+		$v = preg_replace( '~background(-image)?:\s*url\([^>]+\)[;]?\s*~is', '', $v );
 
-		return $v1 . $v2 . $v . $quote . ' data-bg=' . $quote . $url_match[1] . $quote;
+		return $v1 . $v2 . $v . $quote . ' data-bg=' . $quote . $url_match[2] . $quote;
 	}
 
 

@@ -173,6 +173,18 @@ $keys = array(
 		'type' => 'boolean',
 		'default' => true
 	),
+	'lazyload.googlemaps.google_maps_easy' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyload.googlemaps.wp_google_maps' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
+	'lazyload.googlemaps.wp_google_map_plugin' => array(
+		'type' => 'boolean',
+		'default' => false
+	),
 	'lazyload.exclude' => array(
 		'type' => 'array',
 		'default' => array(
@@ -223,7 +235,7 @@ $keys = array(
 	),
 	'objectcache.enabled_for_wp_admin' => array(
 		'type' => 'boolean',
-		'default' => true
+		'default' => false,
 	),
 	'objectcache.fallback_transients' => array(
 		'type' => 'boolean',
@@ -2299,10 +2311,6 @@ $keys = array(
 	),
 
 
-	'common.support' => array(
-		'type' => 'string',
-		'default' => ''
-	),
 	'common.track_usage' => array(
 		'type' => 'boolean',
 		'default' => false
@@ -2400,7 +2408,6 @@ $keys = array(
 	'extensions.active' => array(
 		'type' => 'array',
 		'default' => array(
-			'newrelic' => 'w3-total-cache/Extension_NewRelic_Plugin.php',
 			'fragmentcache' => 'w3-total-cache/Extension_FragmentCache_Plugin.php'
 		)
 	),
@@ -2422,7 +2429,10 @@ $keys = array(
 		'default' => '',
 		'master_only' => true
 	),
-
+	'jquerymigrate.disabled' => array(
+		'type' => 'boolean',
+		'default' => false,
+	),
 
 	// extensions keys:
 	//
